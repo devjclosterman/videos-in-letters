@@ -1,82 +1,42 @@
-:root {
-  --df-hero-h: clamp(340px, 60vh, 640px);
-  --df-fg: #0e0f11;
-  --df-dim: #9aa1a9;
-  --df-speed: 900ms;    /* fade speed */
-  --df-delay: 2600ms;   /* time a word stays visible */
+:root{
+  --df-h: clamp(360px, 62vh, 680px);
+  --df-fs: clamp(48px, 12vw, 150px); /* headline size */
+  --df-dim:#a8b0ba;
+  --df-speed:900ms;
+  --df-hold:2600ms;
 }
 
-.df-hero {
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  place-items: center;
-  height: var(--df-hero-h);
-  padding: clamp(24px, 6vw, 72px) 16px;
-  background: linear-gradient(180deg,#f6f7fb 0%, #eef1f6 100%);
-  overflow: hidden;
+.df-hero{
+  position:relative; isolation:isolate;
+  height:var(--df-h);
+  background:linear-gradient(180deg,#f6f7fb 0%,#eef1f6 100%);
+  overflow:hidden;
 }
 
-.df-slide {
-  position: absolute;
-  inset: 0 0 0 0;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  transition: opacity var(--df-speed) ease, transform var(--df-speed) ease;
-  transform: translateY(16px) scale(0.99);
-  pointer-events: none;
+.df-slide{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  opacity:0; transform:translateY(12px) scale(.985);
+  transition:opacity var(--df-speed) ease, transform var(--df-speed) ease;
+  pointer-events:none;
 }
+.df-slide.is-active{ opacity:1; transform:none; }
 
-.df-slide.is-active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.df-word-layer{ position:absolute; inset:0; pointer-events:none; }
+.df-word-layer svg{ width:100%; height:100%; display:block; }
+.df-fo{ width:100%; height:100%; }
+.df-fo > div, .df-fo video{ width:100%; height:100%; }
+.df-fo video{ object-fit:cover; }
+
+.df-ghosts{
+  position:absolute; inset:0;
+  display:grid; align-content:center;
+  gap:clamp(6px,1.6vh,14px);
+  padding-inline:clamp(12px,6vw,80px);
+  pointer-events:none;
 }
-
-/* The SVG text clip uses objectBoundingBox units.
-   The foreignObject will be sized to the hero. */
-.df-fo {
-  width: 100%;
-  height: 100%;
-  clip-path: url(#df-text-clip);
-}
-
-/* Video fills the clip */
-.df-fo video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Dim, stacked “ghost” lines behind the live word (like the example) */
-.df-ghosts {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: center;
-  gap: clamp(6px, 1.6vh, 14px);
-  pointer-events: none;
-  padding-inline: clamp(8px, 6vw, 80px);
-}
-
-.df-ghosts h2 {
-  font: 800 clamp(44px, 11vw, 120px)/1 "Inter", system-ui, sans-serif;
-  color: var(--df-dim);
-  opacity: 0.22;
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.df-word-layer {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-  padding-inline: clamp(8px, 6vw, 80px);
-}
-
-.df-word-layer svg {
-  width: 100%;
-  height: 100%;
+.df-ghosts h2{
+  margin:0; opacity:.22; color:var(--df-dim);
+  font:800 clamp(44px,11vw,120px)/1 "Inter",system-ui,sans-serif;
+  letter-spacing:-.02em;
 }
