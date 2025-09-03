@@ -8,31 +8,19 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <section id="df-hero" class="df-hero">
-  <!-- Slide 1 -->
-  <div class="df-slide" data-word="Interviews" data-video="/desertforgedvideo2.mp4"></div>
-  <!-- Slide 2 -->
-  <div class="df-slide" data-word="Sales calls" data-video="/desertforgedvideo2.mp4"></div>
-  <!-- Slide 3 -->
-  <div class="df-slide" data-word="Meetings" data-video="/desertforgedvideo2.mp4"></div>
-  <!-- Slide 4 -->
-  <div class="df-slide" data-word="Everything" data-video="/desertforgedvideo2.mp4"></div>
 
-  <!-- Hidden SVG defs used for the text mask -->
-  <svg class="df-defs" aria-hidden="true" focusable="false">
-    <defs>
-      <clipPath id="df-text-clip" clipPathUnits="objectBoundingBox">
-        <!-- Path gets rewritten by JS each slide -->
-        <text id="df-clip-text" x="0.5" y="0.7"
-              dominant-baseline="middle"
-              text-anchor="middle"
-              font-family="Inter, system-ui, sans-serif"
-              font-weight="800"
-              font-size="0.55">TEXT</text>
-      </clipPath>
-    </defs>
-  </svg>
+
+ <section id="df-hero" class="df-hero">
+  <!-- Slides -->
+  <div class="df-slide" data-word="Interviews" data-video="/media/desertforgedvideo2.mp4"></div>
+  <div class="df-slide" data-word="Sales calls" data-video="/media/sales.mp4"></div>
+  <div class="df-slide" data-word="Meetings" data-video="/media/meetings.mp4"></div>
+  <div class="df-slide" data-word="Everything" data-video="/media/everything.mp4"></div>
+
+  <!-- Ghost stack -->
+  <div class="df-ghosts" aria-hidden="true"></div>
 </section>
+
 
 
 </body>
